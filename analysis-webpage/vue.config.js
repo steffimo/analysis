@@ -1,6 +1,6 @@
 module.exports = {
-    publicPath: '/analysis/',
-    devServer: {
-        https: true
-    }
+  publicPath: '/analysis/',
+  devServer: {
+    https: true
+  }
 }
