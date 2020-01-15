@@ -2,28 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e53022b5-68a5-4d5d-96a9-30dc9f26903b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/analysis-webpage/deploy.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulated-device/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulated-device/src/main/java/de/maibornwolff/iot_showcase/simulator/SimulatedDevice.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulated-device/target/classes/de/maibornwolff/iot_showcase/simulator/SimulatedDevice$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulated-device/target/classes/de/maibornwolff/iot_showcase/simulator/SimulatedDevice$EventCallback.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulated-device/target/classes/de/maibornwolff/iot_showcase/simulator/SimulatedDevice$MessageSender.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulated-device/target/classes/de/maibornwolff/iot_showcase/simulator/SimulatedDevice$TelemetryDataPoint.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulated-device/target/classes/de/maibornwolff/iot_showcase/simulator/SimulatedDevice.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpage/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpage/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpage/babel.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpage/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpage/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpage/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpage/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpage/src/App.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpage/src/assets/hands.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpage/src/assets/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpage/src/components/HelloWorld.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpage/src/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpage/vue.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpage/webpage.iml" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -133,7 +114,7 @@
       <workItem from="1577571307004" duration="3238000" />
       <workItem from="1577702094155" duration="9673000" />
       <workItem from="1578327087325" duration="32274000" />
-      <workItem from="1579101458994" duration="826000" />
+      <workItem from="1579101458994" duration="2697000" />
     </task>
     <task id="LOCAL-00001" summary="adaption simulated device for connection">
       <created>1577136378039</created>
@@ -261,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578778324003</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="delete unnecessary files">
+      <created>1579102423017</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1579102423017</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,6 +288,7 @@
     <MESSAGE value="webpage: login form and pushing time over text" />
     <MESSAGE value="webpage: real data message availabe" />
     <MESSAGE value="webpage: requirements for form" />
-    <option name="LAST_COMMIT_MESSAGE" value="webpage: requirements for form" />
+    <MESSAGE value="delete unnecessary files" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete unnecessary files" />
   </component>
 </project>
