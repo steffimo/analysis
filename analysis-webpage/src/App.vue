@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Analytics logo" src="./assets/analytics.png">
+    <img alt="Analytics logo" width="30%" src="./assets/analytics.png">
     <HelloWorld msg="Welcome to Your Analytics"/>
   </div>
 </template>
