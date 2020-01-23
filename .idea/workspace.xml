@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e53022b5-68a5-4d5d-96a9-30dc9f26903b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis-webpage/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis-webpage/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis-webpage/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/analysis-webpage/src/components/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/src/components/HelloWorld.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis-webpage/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/vue.config.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -121,7 +124,9 @@
       <workItem from="1578327087325" duration="32274000" />
       <workItem from="1579101458994" duration="6051000" />
       <workItem from="1579258178192" duration="3146000" />
-      <workItem from="1579381386533" duration="16013000" />
+      <workItem from="1579381386533" duration="20473000" />
+      <workItem from="1579696282000" duration="1890000" />
+      <workItem from="1579702611185" duration="4161000" />
     </task>
     <task id="LOCAL-00001" summary="adaption simulated device for connection">
       <created>1577136378039</created>
@@ -263,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579109984387</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="new elements for the analysis, trials for Http request">
+      <created>1579629654543</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1579629654543</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,6 +316,7 @@
     <MESSAGE value="webpage: requirements for form" />
     <MESSAGE value="delete unnecessary files" />
     <MESSAGE value="update vue.config.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="update vue.config.js" />
+    <MESSAGE value="new elements for the analysis, trials for Http request" />
+    <option name="LAST_COMMIT_MESSAGE" value="new elements for the analysis, trials for Http request" />
   </component>
 </project>
