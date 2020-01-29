@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e53022b5-68a5-4d5d-96a9-30dc9f26903b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+    <list default="true" id="e53022b5-68a5-4d5d-96a9-30dc9f26903b" name="Default Changelist" comment="new elements for the analysis, trials for Http request">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis-webpage/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis-webpage/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis-webpage/src/components/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/src/components/HelloWorld.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis-webpage/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/vue.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis-webpage/deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/deploy.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -126,7 +122,8 @@
       <workItem from="1579258178192" duration="3146000" />
       <workItem from="1579381386533" duration="20473000" />
       <workItem from="1579696282000" duration="1890000" />
-      <workItem from="1579702611185" duration="4161000" />
+      <workItem from="1579702611185" duration="5302000" />
+      <workItem from="1579873725169" duration="2808000" />
     </task>
     <task id="LOCAL-00001" summary="adaption simulated device for connection">
       <created>1577136378039</created>
