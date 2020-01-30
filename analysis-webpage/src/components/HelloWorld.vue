@@ -1,101 +1,89 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <img alt="QR Code Game" width="30%" src="require('../assets/qrcodeGame.png')">
     <p>
-      Here are informations about your current session and the overall placements.
+      Here are informations about your current session <b>{{currentSessionID}}</b> and the overall placements.
     </p>
     <div class='outputInfos'>
       <div class='outputSessions'>
-        <div class="search-user">
-          <input
-            type="text"
-            id="query-text"
-            placeholder="Suche nach Username"
-            :value="search_text"
-          />
-        </div>
         <div class='test'>
           <p>{{htmlResponse}}</p>
         </div>
         <ul>
           <details open="open">
-            <summary>Session 10</summary>
-            <p>Hier werden die Results für Session 10 angezeigt.</p>
+            <summary>Real-time data</summary>
+            <RealtimeResults></RealtimeResults>
           </details>
           <details>
-            <summary>Session 9</summary>
-            <p>Hier werden die Results für Session 9 angezeigt.</p>
-          </details>
-          <p>...</p>
-          <details>
-            <summary>Session 1</summary>
-            <p>Hier werden die Results für Session 1 angezeigt.</p>
+          <summary> Results for the current session</summary>
+          <ResultTable></ResultTable>
           </details>
         </ul>
       </div>
       <div class='outputHighscore'>
-        <table>
-          <tr>
-            <th>Placement</th>
-            <th>Name</th>
-            <th>Energy</th>
-            <th>Date</th>
-          </tr>
-          <tr>
-            <th>1</th>
-            <th>Tim</th>
-            <th>30,3</th>
-            <th>21.01.2020 10:12</th>
-          </tr>
-        </table>
+        <details>
+          <summary>Overall highscore</summary>
+          <ResultTable></ResultTable>
+        </details>
+      </div>
+      <div class="search-user">
+        <details>
+          <summary>Search for user</summary>
+        <input
+          type="text"
+          id="query-user"
+          placeholder="Suche nach Username"
+          :value="search_user"
+        />
+        </details>
+      </div>
+      <div class="search-session">
+        <details>
+          <summary>Search for session</summary>
+          <input
+            type="text"
+            id="query-session"
+            placeholder="Suche nach Session"
+            :value="search_Session"
+          />
+        </details>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-    const axios = require('axios').default
+    import ResultTable from "./ResultTable";
+    import RealtimeResults from "./RealtimeResults";
 
     export default {
         name: 'HelloWorld',
+        components: {RealtimeResults, ResultTable},
         props: {
             msg: String,
-            search_text: String
+            search_user: String,
+            search_session: String
         },
         data: function () {
             return {
-                // Funktions-Apps => DataAnalytics => Verwalten => Funktionsschlüssel als code
-                url: 'https://dataorganisation-iotshowcase.azurewebsites.net/api/DataAnalytics?code=M4nNU0aLna6rQDpGc055r12G92i7e06OB0YD1CUCMW4lfmyqmZU75A==',
-                htmlResponse: 'No informations'
+                currentSessionID: '',
+                count: 1
             }
         },
         methods: {
-            async getData() {
-                try {
-                    var response = await axios.get(this.url)
-                    console.log(response.data)
-                } catch (e) {
-                    console.log("Error getting data: " + e)
-                }
-            }
         },
         created() {
-            this.getData()
+            this.count = Math.floor(Math.random() * (101));
+            var today = new Date(Date.now());
+            this.currentSessionID = "S" + today.getFullYear() + today.getMonth() + 1 + today.getDate() + today.getMilliseconds() + "_" + this.count;
+            //29.1.2020, 20:07:08
+            //new Date(Date.now()).toLocaleString();
         }
     }
 </script>
 
 <style scoped>
-
-  .outputSessions {
-    float: left;
-    width: 66%;
-  }
-
-  .outputHighscore {
-    float: left;
-    width: 33%;
-  }
 
   table, th, td {
     border: 1px solid black;

@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e53022b5-68a5-4d5d-96a9-30dc9f26903b" name="Default Changelist" comment="new elements for the analysis, trials for Http request">
+    <list default="true" id="e53022b5-68a5-4d5d-96a9-30dc9f26903b" name="Default Changelist" comment="enabled axios for http request">
+      <change afterPath="$PROJECT_DIR$/analysis-webpage/src/assets/qrcodeGame.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analysis-webpage/src/components/RealtimeResults.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analysis-webpage/src/components/ResultTable.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis-webpage/deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/deploy.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis-webpage/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis-webpage/src/components/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/src/components/HelloWorld.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,6 +22,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -123,7 +128,8 @@
       <workItem from="1579381386533" duration="20473000" />
       <workItem from="1579696282000" duration="1890000" />
       <workItem from="1579702611185" duration="5302000" />
-      <workItem from="1579873725169" duration="2808000" />
+      <workItem from="1579873725169" duration="14591000" />
+      <workItem from="1580375632430" duration="2366000" />
     </task>
     <task id="LOCAL-00001" summary="adaption simulated device for connection">
       <created>1577136378039</created>
@@ -272,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579629654543</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="enabled axios for http request">
+      <created>1580320448124</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1580320448124</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,6 +327,7 @@
     <MESSAGE value="delete unnecessary files" />
     <MESSAGE value="update vue.config.js" />
     <MESSAGE value="new elements for the analysis, trials for Http request" />
-    <option name="LAST_COMMIT_MESSAGE" value="new elements for the analysis, trials for Http request" />
+    <MESSAGE value="enabled axios for http request" />
+    <option name="LAST_COMMIT_MESSAGE" value="enabled axios for http request" />
   </component>
 </project>
