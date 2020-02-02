@@ -1,54 +1,48 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <img alt="QR Code Game" width="30%" src="require('../assets/qrcodeGame.png')">
     <p>
       Here are informations about your current session <b>{{currentSessionID}}</b> and the overall placements.
     </p>
     <div class='outputInfos'>
-      <div class='outputSessions'>
-        <div class='test'>
-          <p>{{htmlResponse}}</p>
-        </div>
-        <ul>
-          <details open="open">
-            <summary>Real-time data</summary>
-            <RealtimeResults></RealtimeResults>
-          </details>
-          <details>
-          <summary> Results for the current session</summary>
-          <ResultTable></ResultTable>
-          </details>
-        </ul>
-      </div>
-      <div class='outputHighscore'>
-        <details>
-          <summary>Overall highscore</summary>
-          <ResultTable></ResultTable>
-        </details>
-      </div>
-      <div class="search-user">
-        <details>
-          <summary>Search for user</summary>
+      <details open="open">
+        <summary>Real-time data</summary>
+        <RealtimeResults></RealtimeResults>
+      </details>
+      <details>
+        <summary> Results for your current session</summary>
+        <ResultTable :overall=false
+                     url="https://dataorganisation-iotshowcase.azurewebsites.net/api/DataAnalyticsSession?code=YHM7hC64axqap27ImnFaaVXbIhJ5vAOLRLBcvoM5aXRIUFG0OeaYzw=="></ResultTable>
+      </details>
+    </div>
+    <div class='outputHighscore'>
+      <details>
+        <summary>Overall highscore</summary>
+        <ResultTable overall=true
+                     url="https://dataorganisation-iotshowcase.azurewebsites.net/api/DataAnalytics?code=M4nNU0aLna6rQDpGc055r12G92i7e06OB0YD1CUCMW4lfmyqmZU75A=="></ResultTable>
+      </details>
+    </div>
+    <div class="search-user">
+      <details>
+        <summary>Search for user</summary>
         <input
           type="text"
           id="query-user"
           placeholder="Suche nach Username"
           :value="search_user"
         />
-        </details>
-      </div>
-      <div class="search-session">
-        <details>
-          <summary>Search for session</summary>
-          <input
-            type="text"
-            id="query-session"
-            placeholder="Suche nach Session"
-            :value="search_Session"
-          />
-        </details>
-      </div>
+      </details>
+    </div>
+    <div class="search-session">
+      <details>
+        <summary>Search for session</summary>
+        <input
+          type="text"
+          id="query-session"
+          placeholder="Suche nach Session"
+          :value="search_session"
+        />
+      </details>
     </div>
   </div>
 </template>
@@ -62,21 +56,16 @@
         components: {RealtimeResults, ResultTable},
         props: {
             msg: String,
-            search_user: String,
-            search_session: String
+            currentSessionID: String
         },
         data: function () {
             return {
-                currentSessionID: '',
-                count: 1
+                search_user: null,
+                search_session: null
             }
         },
-        methods: {
-        },
+        methods: {},
         created() {
-            this.count = Math.floor(Math.random() * (101));
-            var today = new Date(Date.now());
-            this.currentSessionID = "S" + today.getFullYear() + today.getMonth() + 1 + today.getDate() + today.getMilliseconds() + "_" + this.count;
             //29.1.2020, 20:07:08
             //new Date(Date.now()).toLocaleString();
         }

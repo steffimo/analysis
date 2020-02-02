@@ -6,15 +6,15 @@
         <th>Placement</th>
         <th>Name</th>
         <th>Energy</th>
-        <th>Date</th>
+        <th v-if=overall>Date</th>
       </tr>
       </thead>
       <tbody>
       <tr v-for="(item, index) in list">
-        <td>{{ index+1}}></td>
-        <td>{{ item.deviceID }}></td>
-        <td>{{ item.energy }}></td>
-        <td>{{ getDateFromSession(item.sessionID) }}></td>
+        <td>{{ index+1}}</td>
+        <td>{{ item.deviceID }}</td>
+        <td>{{ item.energy }}</td>
+        <td v-if=overall>{{ getDateFromSession(item.sessionID) }}</td>
       </tr>
       </tbody>
     </table>
@@ -26,11 +26,13 @@
     const axios = require('axios').default
     export default {
         name: "ResultTable",
+        props: {
+            // Funktions-Apps => DataAnalytics bzw DataAnalyticsSession => Verwalten => Funktionsschlüssel als code
+            url: String,
+            overall: Boolean
+        },
         data: function () {
             return {
-                // Funktions-Apps => DataAnalytics => Verwalten => Funktionsschlüssel als code
-                url: 'https://dataorganisation-iotshowcase.azurewebsites.net/api/DataAnalytics?code=M4nNU0aLna6rQDpGc055r12G92i7e06OB0YD1CUCMW4lfmyqmZU75A==',
-                htmlResponse: 'No informations',
                 list: [String]
             };
         },
@@ -40,9 +42,7 @@
             console.log("after getData2")
         },*/
         created() {
-            console.log("before getData")
             this.getData()
-            console.log("after getData")
         },
         methods: {
             async getData() {
