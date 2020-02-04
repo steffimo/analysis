@@ -36,12 +36,7 @@
                 list: [String]
             };
         },
-        /*mounted() {
-            console.log("before getData2")
-            this.getData();
-            console.log("after getData2")
-        },*/
-        created() {
+        mounted() {
             this.getData()
         },
         methods: {
