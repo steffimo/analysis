@@ -25,16 +25,15 @@
             };
         },
         created() {
-            let info = this.getConnectionInfo();
-            this.getConnectionInfo2(info)
+            this.getConnectionInfo().then(info => this.getConnectionInfo2(info))
         },
         methods: {
             getConnectionInfo2(info) {
                 // make compatible with old and new SignalRConnectionInfo
-                //info.accessToken = info.accessToken || info.accessKey;
-                //info.url = info.url || info.endpoint;
-                info.url = "https://iotdata.service.signalr.net/client/?hub=iotData"
-                info.accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1ODA5MzcyOTgsImV4cCI6MTU4MDkzOTA5OCwiaWF0IjoxNTgwOTM3Mjk4LCJhdWQiOiJodHRwczovL2lvdGRhdGEuc2VydmljZS5zaWduYWxyLm5ldC9jbGllbnQvP2h1Yj1pb3REYXRhIn0.dfqCBMYz7FPpgEIk8IrPmVz5dILoEXqiZJdvxS-s1wE"
+                info.accessToken = info.accessToken || info.accessKey;
+                info.url = info.url || info.endpoint;
+                //info.url = "https://iotdata.service.signalr.net/client/?hub=iotData"
+                //info.accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1ODA5ODI4MjAsImV4cCI6MTU4MDk4NDYyMCwiaWF0IjoxNTgwOTgyODIwLCJhdWQiOiJodHRwczovL2lvdGRhdGEuc2VydmljZS5zaWduYWxyLm5ldC9jbGllbnQvP2h1Yj1pb3REYXRhIn0.2i2sx2U4jbblEdbW5d34DxKrHvXebXmbVEgbJ8EWVxM"
 
                 this.ready = true;
                 const options = {
