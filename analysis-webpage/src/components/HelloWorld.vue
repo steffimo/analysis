@@ -52,6 +52,8 @@
 </template>
 
 <script>
+  //TODO Cors enable for web
+  //TODO update variants (time span etc)
     import ResultTable from "./ResultTable";
     import RealtimeResults from "./RealtimeResults";
 
@@ -82,3 +84,4 @@
     border: 1px solid black;
   }
 </style>
+
