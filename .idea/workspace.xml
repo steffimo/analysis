@@ -4,6 +4,7 @@
     <list default="true" id="e53022b5-68a5-4d5d-96a9-30dc9f26903b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/analysis-webpage/src/components/RealtimeResults.vue" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/src/components/RealtimeResults.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis-webpage/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/vue.config.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -139,7 +140,7 @@
       <workItem from="1579702611185" duration="5302000" />
       <workItem from="1579873725169" duration="14591000" />
       <workItem from="1580375632430" duration="8473000" />
-      <workItem from="1580458682963" duration="52081000" />
+      <workItem from="1580458682963" duration="56418000" />
     </task>
     <task id="LOCAL-00001" summary="adaption simulated device for connection">
       <created>1577136378039</created>
@@ -323,7 +324,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580981464738</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="updated axios version - cors problems">
+      <created>1580983220960</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1580983220960</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,7 +352,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="new module for the webpage with vuejs" />
     <MESSAGE value="after npm commands" />
     <MESSAGE value="changing webpage name" />
     <MESSAGE value="changing some infos" />
@@ -369,6 +376,7 @@
     <MESSAGE value="ResultTable for overall highscore completed, generated qr code" />
     <MESSAGE value="updates for sessions" />
     <MESSAGE value="current version - cors problems" />
-    <option name="LAST_COMMIT_MESSAGE" value="current version - cors problems" />
+    <MESSAGE value="updated axios version - cors problems" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated axios version - cors problems" />
   </component>
 </project>

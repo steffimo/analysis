@@ -9,7 +9,7 @@
 
 <script>
     //const apiBaseUrl = "https://dataorganisation-iotshowcase.azurewebsites.net";
-    const apiBaseUrl = "http://localhost:7071"
+    const apiBasedUrl = "http://localhost:7071";
     const signalR = require('@aspnet/signalr');
 
     const axios = require('axios').default;
@@ -31,19 +31,15 @@
             getConnectionInfo2(info) {
                 // make compatible with old and new SignalRConnectionInfo
                 info.accessToken = info.accessToken || info.accessKey;
-                info.url = info.url || info.endpoint;
-                //info.url = "https://iotdata.service.signalr.net/client/?hub=iotData"
+                //info.url = info.url || info.endpoint;
+                info.url = "/client/?hub=iotData"
                 //info.accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1ODA5ODI4MjAsImV4cCI6MTU4MDk4NDYyMCwiaWF0IjoxNTgwOTgyODIwLCJhdWQiOiJodHRwczovL2lvdGRhdGEuc2VydmljZS5zaWduYWxyLm5ldC9jbGllbnQvP2h1Yj1pb3REYXRhIn0.2i2sx2U4jbblEdbW5d34DxKrHvXebXmbVEgbJ8EWVxM"
+                console.log(info.url + "  token  " + info.accessToken)
 
                 this.ready = true;
                 const options = {
                     accessTokenFactory: () => info.accessToken
                 };
-
-                let options2 = {
-                    skipNegotiation: true,
-                    transport: signalR.HttpTransportType.WebSockets
-                }
 
                 const connection = new signalR.HubConnectionBuilder()
                     .withUrl(info.url, options)
@@ -64,22 +60,13 @@
             ,
             getAxiosConfig() {
                 const config = {
-                    withCredentials: false,
-                    //origin: "http://localhost:8080",
                     headers: {}
                 };
                 return config;
             },
             async getConnectionInfo() {
-                return axios.post(`${apiBaseUrl}/api/negotiate`, null, this.getAxiosConfig())
+                return axios.post(apiBasedUrl+'/api/negotiate', null, this.getAxiosConfig())
                     .then(resp => resp.data);
-            },
-
-            async sendMessage(sender, messageText) {
-                return axios.post(`${apiBaseUrl}/api/DataIngestion`, {
-                    sender: sender,
-                    text: messageText
-                }, this.getAxiosConfig()).then(resp => resp.data);
             }
         }
 
