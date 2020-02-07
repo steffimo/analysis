@@ -1,6 +1,6 @@
 <template>
-  <div class="table-responsive">
-    <table class="table-hover">
+  <div class="table">
+    <table>
       <thead>
       <tr>
         <th>Placement</th>
@@ -36,13 +36,13 @@
                 list: [String]
             };
         },
-        mounted() {
+        created() {
             this.getData()
         },
         methods: {
             async getData() {
                 try {
-                    var response = await axios.get(this.url)
+                    let response = await axios.get(this.url)
                     console.log(response.data)
                     this.list = response.data
                 } catch (e) {
@@ -58,5 +58,8 @@
 </script>
 
 <style scoped>
-
+ .table {
+   overflow: auto;
+   max-height: 500px;
+ }
 </style>
