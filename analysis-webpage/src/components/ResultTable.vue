@@ -39,7 +39,7 @@
         created() {
             this.getData()
         },
-        methods: {
+      methods: {
             async getData() {
                 try {
                     let response = await axios.get(this.url)
@@ -50,8 +50,7 @@
                 }
             },
             getDateFromSession(sessionID) {
-                return sessionID
-                //return sessionID.slice(7,8)+"/"+sessionID.slice(5,6)+"/"+sessionID.slice(1,4)
+                return sessionID.slice(7,9)+"/"+sessionID.slice(5,7)+"/"+sessionID.slice(1,5)
             }
         }
     }

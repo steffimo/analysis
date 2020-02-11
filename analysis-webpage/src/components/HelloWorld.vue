@@ -58,7 +58,6 @@
 </template>
 
 <script>
-    //TODO update variants (time span etc)
     import ResultTable from "./ResultTable";
     import RealtimeResults from "./RealtimeResults";
 
