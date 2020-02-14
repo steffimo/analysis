@@ -1,17 +1,19 @@
 <template>
-  <div id="realtimeData">
-    <ul>
-      <li v-for="(msg, index) in messages" :key="index">{{ msg }}</li>
-    </ul>
+  <div>
+    <div id="realtimeData">
+      <ul>
+        <li v-for="(msg, index) in messages" :key="index">{{ msg }}</li>
+      </ul>
+    </div>
+    <div class="realtime">
+      <p>Player {{players[0]}}</p>
+      <GChart
+        type="LineChart"
+        :data="chartData"
+        :options="chartOptions"
+      />
+    </div>
   </div>
-  <!--<div class="realtime">
-  <p>Player </p>
-  <GChart
-    type="LineChart"
-    :data="chartData"
-    :options="chartOptions"
-  />
-  </div>-->
 </template>
 
 <script>
@@ -29,25 +31,50 @@
       return {
         ready: false,
         messages: [],
+        players: [],
+        i: 0,
         // Array will be automatically processed with visualization.arrayToDataTable function
         chartData: [
           ['Date', 'X-Axis', 'Y-Axis', 'Z-Axis'],
-          ['2014', 1000, 400, 200],
-          ['2015', 1170, 460, 250],
-          ['2016', 660, 1120, 300],
-          ['2017', 1030, 540, 350]
+          [0,0,0,0]
+        ],
+        fullData: [
+          ['Date', 'X-Axis', 'Y-Axis', 'Z-Axis']
         ],
         chartOptions: {
-            hAxis: {
-              title: 'Time'
-            },
-            vAxis: {
-              title: 'Acceleration'
-            }
+          hAxis: {
+            title: 'Time'
+          },
+          vAxis: {
+            title: 'Acceleration'
+          },
+          width: 900,
+          explorer: {
+            actions: ['dragToZoom', 'rightClickToReset'],
+            axis: 'horizontal',
+            keepInBounds: true,
+            maxZoomIn: 10.0
+          }
         }
       };
     },
     created() {
+      /*const refreshInterval = setInterval(() => {
+        //this.chartData.push([i += 0.5, Math.random() * 1000, Math.random() * 1000, Math.random() * 1000])
+
+
+        /*this.fullData.push([i += 0.5, Math.random() * 1000, Math.random() * 1000, Math.random() * 1000])
+        if (this.chartData[this.chartData.length - 1][0] - this.chartData[1][0] > 20) {
+          this.chartData.splice(1, 1)
+        }
+
+      }, 500)
+
+      setTimeout(() => {
+        clearInterval(this.refreshInterval)
+        this.chartData = this.fullData
+      }, 10000)*/
+
       this.getConnectionInfo().then(info => this.getConnectionInfo2(info))
     },
     methods: {
@@ -67,9 +94,21 @@
         connection.on('newMessage', (message) => {
           console.log("Connection from SignalR with message: ")
           console.log(message)
-          this.messages.push(message)
+          this.messages.push(message);
+          let json = JSON.parse(message)
+          /* typeof json.deviceCoordinateX === 'number'
+              ? console.log(json.deviceCoordinateX) //  für Zahlen
+              : console.log(json.deviceCoordinateX+"nee")*/
+          if (this.players.indexOf(json.deviceID) != -1) {
+            this.players.push(json.deviceID);
+          }
+
+          this.chartData.push([this.i += 1.0, json.deviceCoordinateX, json.deviceCoordinateY, json.deviceCoordinateZ])
+          //this.fullData.push([this.i += 1.0, json.deviceCoordinateX, json.deviceCoordinateY, json.deviceCoordinateZ])
 
         });
+
+
         connection.onclose(() => console.log('disconnected'));
 
         console.log('connecting...');

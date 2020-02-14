@@ -10,6 +10,7 @@
       </tr>
       </thead>
       <tbody>
+      <tr v-if="list.length <= 0">Loading...</tr>
       <tr v-for="(item, index) in list">
         <td>{{ index+1}}</td>
         <td>{{ item.deviceID }}</td>
@@ -23,42 +24,47 @@
 
 <script>
 
-    const axios = require('axios').default
-    export default {
-        name: "ResultTable",
-        props: {
-            // Funktions-Apps => DataAnalytics bzw DataAnalyticsSession => Verwalten => Funktionsschlüssel als code
-            url: String,
-            overall: Boolean
-        },
-        data: function () {
-            return {
-                list: [String]
-            };
-        },
-        created() {
-            this.getData()
-        },
-      methods: {
-            async getData() {
-                try {
-                    let response = await axios.get(this.url)
-                    console.log(response.data)
-                    this.list = response.data
-                } catch (e) {
-                    console.log("Error getting data: " + e)
-                }
-            },
-            getDateFromSession(sessionID) {
-                return sessionID.slice(7,9)+"/"+sessionID.slice(5,7)+"/"+sessionID.slice(1,5)
-            }
+  const axios = require('axios').default
+  export default {
+    name: "ResultTable",
+    props: {
+      // Funktions-Apps => DataAnalytics bzw DataAnalyticsSession => Verwalten => Funktionsschlüssel als code
+      url: String,
+      overall: Boolean
+    },
+    data: function () {
+      return {
+        list: [String]
+      };
+    },
+    created() {
+      this.getData();
+      /*
+      setInterval(() => {
+      this.getData()
+      }, 30000);
+      */
+    },
+    methods: {
+      async getData() {
+        try {
+          let response = await axios.get(this.url)
+          console.log(response.data)
+          this.list = response.data
+        } catch (e) {
+          console.log("Error getting data: " + e)
         }
+      },
+      getDateFromSession(sessionID) {
+        return sessionID.slice(7, 9) + "/" + sessionID.slice(5, 7) + "/" + sessionID.slice(1, 5)
+      }
     }
+  }
 </script>
 
 <style scoped>
- .table {
-   overflow: auto;
-   max-height: 500px;
- }
+  .table {
+    overflow: auto;
+    max-height: 500px;
+  }
 </style>

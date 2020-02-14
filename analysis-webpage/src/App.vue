@@ -16,10 +16,19 @@
         },
         created() {
             this.count = Math.floor(Math.random() * (101));
-            var today = new Date(Date.now());
-            if ((today.getMonth()+1)<10 || today.getDay()<10){
-                this.currentSession = "S" + today.getFullYear() + "0" + (today.getMonth()+1) + "0" + today.getDate() + today.getMilliseconds() + "_" + this.count;
-            } else {
+            let today = new Date(Date.now());
+
+            //TODO warum klappt das nicht...
+            if ((today.getMonth()+1)<10 && today.getDay()<10){
+                this.currentSession = "S" + today.getFullYear() + "0" + (today.getMonth()+1) + "0"+ today.getDate() + today.getMilliseconds() + "_" + this.count;
+            }
+            else if ((today.getMonth()+1)<10){
+                this.currentSession = "S" + today.getFullYear() + "0" + (today.getMonth()+1) + today.getDate() + today.getMilliseconds() + "_" + this.count;
+            }
+            else if (today.getDay()<10){
+                this.currentSession = "S" + today.getFullYear() + (today.getMonth()+1) + "0" + today.getDate() + today.getMilliseconds() + "_" + this.count;
+            }
+            else {
                 this.currentSession = "S" + today.getFullYear() + (today.getMonth() + 1) + today.getDate() + today.getMilliseconds() + "_" + this.count;
             }
             this.url = "https://steffimo.github.io/iotgame?session="+this.currentSession
