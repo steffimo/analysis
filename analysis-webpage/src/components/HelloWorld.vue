@@ -16,17 +16,21 @@
         <details>
           <summary> Results for your current session</summary>
           <ResultTable :overall=false
-                       :url="'api/DataAnalyticsSession?code=YHM7hC64axqap27ImnFaaVXbIhJ5vAOLRLBcvoM5aXRIUFG0OeaYzw==&session=' + currentSessionID"></ResultTable>
+                       :url=url_session></ResultTable>
+          <!--<ResultTable :overall=false
+                       :url="'api/DataAnalyticsSession?code=YHM7hC64axqap27ImnFaaVXbIhJ5vAOLRLBcvoM5aXRIUFG0OeaYzw==&session=' + currentSessionID"></ResultTable>-->
         </details>
       </div>
       <div class='outputHighscore'>
         <details>
           <summary>Overall highscore</summary>
           <ResultTable :overall=true
-                       :url="'api/DataAnalytics?code=M4nNU0aLna6rQDpGc055r12G92i7e06OB0YD1CUCMW4lfmyqmZU75A=='"></ResultTable>
+                       :url=url_overall></ResultTable>
+          <!--<ResultTable :overall=true
+                       :url="'api/DataAnalytics?code=M4nNU0aLna6rQDpGc055r12G92i7e06OB0YD1CUCMW4lfmyqmZU75A=='"></ResultTable>-->
         </details>
       </div>
-      <div class="search-user">
+     <!-- <div class="search-user">
         <details>
           <summary>Search for user</summary>
           <input
@@ -35,8 +39,8 @@
             placeholder="Suche nach Username"
             :value="search_user"
           />
-          <!--<ResultTable :overall=true
-                       :url="'api/DataAnalyticsSession?code=YHM7hC64axqap27ImnFaaVXbIhJ5vAOLRLBcvoM5aXRIUFG0OeaYzw==&session=' + search_user"></ResultTable>-->
+          <ResultTable :overall=true
+                       :url="'api/DataAnalyticsSession?code=YHM7hC64axqap27ImnFaaVXbIhJ5vAOLRLBcvoM5aXRIUFG0OeaYzw==&session=' + search_user"></ResultTable>
         </details>
       </div>
       <div class="search-session">
@@ -48,10 +52,10 @@
             placeholder="Suche nach Session"
             :value="search_session"
           />
-          <!--<ResultTable :overall=false
-                       :url="'api/DataAnalyticsSession?code=YHM7hC64axqap27ImnFaaVXbIhJ5vAOLRLBcvoM5aXRIUFG0OeaYzw==&session=' + search_session"></ResultTable>-->
+          <ResultTable :overall=false
+                       :url="'api/DataAnalyticsSession?code=YHM7hC64axqap27ImnFaaVXbIhJ5vAOLRLBcvoM5aXRIUFG0OeaYzw==&session=' + search_session"></ResultTable>
         </details>
-      </div>
+      </div>-->
     </div>
     </div>
   </div>
@@ -72,7 +76,9 @@
             return {
                 //TODO don't show table when searches are null
                 search_user: null,
-                search_session: null
+                search_session: null,
+                url_overall: API_URL +'/api/DataAnalytics',
+                url_session: API_URL +'/api/DataAnalyticsSession?session=' + this.currentSessionID
             }
         },
         created() {

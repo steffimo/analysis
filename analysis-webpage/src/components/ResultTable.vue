@@ -11,7 +11,7 @@
       </thead>
       <tbody>
       <tr v-if="list.length <= 0">Loading...</tr>
-      <tr v-for="(item, index) in list">
+      <tr v-if="list !== undefined || list.length > 0" v-for="(item, index) in list">
         <td>{{ index+1}}</td>
         <td>{{ item.deviceID }}</td>
         <td>{{ item.energy }}</td>
@@ -34,16 +34,16 @@
     },
     data: function () {
       return {
-        list: [String]
+        list: []
       };
     },
     created() {
       this.getData();
-      /*
-      setInterval(() => {
+
+      /*setInterval(() => {
       this.getData()
-      }, 30000);
-      */
+      }, 10000);*/
+
     },
     methods: {
       async getData() {

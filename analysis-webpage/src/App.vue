@@ -8,6 +8,7 @@
 
 <script>
     import HelloWorld from './components/HelloWorld.vue'
+    const sprintf = require('sprintf-js').sprintf;
 
     export default {
         name: 'app',
@@ -17,20 +18,7 @@
         created() {
             this.count = Math.floor(Math.random() * (101));
             let today = new Date(Date.now());
-
-            //TODO warum klappt das nicht...
-            if ((today.getMonth()+1)<10 && today.getDay()<10){
-                this.currentSession = "S" + today.getFullYear() + "0" + (today.getMonth()+1) + "0"+ today.getDate() + today.getMilliseconds() + "_" + this.count;
-            }
-            else if ((today.getMonth()+1)<10){
-                this.currentSession = "S" + today.getFullYear() + "0" + (today.getMonth()+1) + today.getDate() + today.getMilliseconds() + "_" + this.count;
-            }
-            else if (today.getDay()<10){
-                this.currentSession = "S" + today.getFullYear() + (today.getMonth()+1) + "0" + today.getDate() + today.getMilliseconds() + "_" + this.count;
-            }
-            else {
-                this.currentSession = "S" + today.getFullYear() + (today.getMonth() + 1) + today.getDate() + today.getMilliseconds() + "_" + this.count;
-            }
+            this.currentSession = sprintf('S%04d%02d%02d%03d_%02d', today.getFullYear(), today.getMonth()+1, today.getDate(), today.getMilliseconds(), this.count)
             this.url = "https://steffimo.github.io/iotgame?session="+this.currentSession
         },
         data: function () {

@@ -2,22 +2,20 @@
   <div>
     <div id="realtimeData">
       <ul>
-        <li v-for="(msg, index) in messages" :key="index">{{ msg }}</li>
+        <li v-for="(player, index) in players" :key="index">
+          <div class="realtimePlayer">
+            <p>Player {{player}}</p>
+            <!-- TODO -->
+            <RealtimePlayer ref=player></RealtimePlayer>
+          </div>
+        </li>
       </ul>
-    </div>
-    <div class="realtime">
-      <p>Player {{players[0]}}</p>
-      <GChart
-        type="LineChart"
-        :data="chartData"
-        :options="chartOptions"
-      />
     </div>
   </div>
 </template>
 
 <script>
-  import {GChart} from 'vue-google-charts';
+  import RealtimePlayer from "./RealtimePlayer";
 
   const signalR = require('@aspnet/signalr');
   const axios = require('axios').default;
@@ -25,56 +23,17 @@
   export default {
     name: "RealtimeResults",
     components: {
-      GChart
+      RealtimePlayer
     },
     data: function () {
       return {
         ready: false,
+        //only for tests left
         messages: [],
-        players: [],
-        i: 0,
-        // Array will be automatically processed with visualization.arrayToDataTable function
-        chartData: [
-          ['Date', 'X-Axis', 'Y-Axis', 'Z-Axis'],
-          [0,0,0,0]
-        ],
-        fullData: [
-          ['Date', 'X-Axis', 'Y-Axis', 'Z-Axis']
-        ],
-        chartOptions: {
-          hAxis: {
-            title: 'Time'
-          },
-          vAxis: {
-            title: 'Acceleration'
-          },
-          width: 900,
-          explorer: {
-            actions: ['dragToZoom', 'rightClickToReset'],
-            axis: 'horizontal',
-            keepInBounds: true,
-            maxZoomIn: 10.0
-          }
-        }
+        players: []
       };
     },
     created() {
-      /*const refreshInterval = setInterval(() => {
-        //this.chartData.push([i += 0.5, Math.random() * 1000, Math.random() * 1000, Math.random() * 1000])
-
-
-        /*this.fullData.push([i += 0.5, Math.random() * 1000, Math.random() * 1000, Math.random() * 1000])
-        if (this.chartData[this.chartData.length - 1][0] - this.chartData[1][0] > 20) {
-          this.chartData.splice(1, 1)
-        }
-
-      }, 500)
-
-      setTimeout(() => {
-        clearInterval(this.refreshInterval)
-        this.chartData = this.fullData
-      }, 10000)*/
-
       this.getConnectionInfo().then(info => this.getConnectionInfo2(info))
     },
     methods: {
@@ -96,16 +55,19 @@
           console.log(message)
           this.messages.push(message);
           let json = JSON.parse(message)
-          /* typeof json.deviceCoordinateX === 'number'
-              ? console.log(json.deviceCoordinateX) //  für Zahlen
-              : console.log(json.deviceCoordinateX+"nee")*/
-          if (this.players.indexOf(json.deviceID) != -1) {
+
+          if (this.players.indexOf(json.deviceID) == -1) {
+            //firstTime for this player
             this.players.push(json.deviceID);
+            let rp = this.$refs[json.deviceID];
+            rp.setFirstTimestamp(json.sendingTimestamp);
+            rp.newChartData([json.sendingTimestamp - rp.getFirstTimestamp(), json.deviceCoordinateX, json.deviceCoordinateY, json.deviceCoordinateZ])
+          } else {
+            //let rp = document.querySelector("#rp_" + this.players.indexOf(json.deviceID));
+            let rp = this.$refs[json.deviceID];
+            rp.newChartData([json.sendingTimestamp - rp.getFirstTimestamp(), json.deviceCoordinateX, json.deviceCoordinateY, json.deviceCoordinateZ])
+            //this.chartData.push([json.sendingTimestamp-this.firstTime, json.deviceCoordinateX, json.deviceCoordinateY, json.deviceCoordinateZ])
           }
-
-          this.chartData.push([this.i += 1.0, json.deviceCoordinateX, json.deviceCoordinateY, json.deviceCoordinateZ])
-          //this.fullData.push([this.i += 1.0, json.deviceCoordinateX, json.deviceCoordinateY, json.deviceCoordinateZ])
-
         });
 
 
@@ -124,7 +86,7 @@
         return config;
       },
       async getConnectionInfo() {
-        return axios.post('/api/negotiate', null, this.getAxiosConfig())
+        return axios.post(API_URL + '/api/negotiate', null, this.getAxiosConfig())
           .then(resp => resp.data);
       }
     }
@@ -132,5 +94,7 @@
 </script>
 
 <style scoped>
-
+  .ul {
+    list-style: none
+  }
 </style>
