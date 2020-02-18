@@ -28,7 +28,7 @@
   export default {
     name: "ResultTable",
     props: {
-      // Funktions-Apps => DataAnalytics bzw DataAnalyticsSession => Verwalten => Funktionsschlüssel als code
+      // Funktions-Apps => DataAnalytics bzw DataAnalyticsSession => Verwalten => Funktionsschlüssel als code, falls authorization auf .function
       url: String,
       overall: Boolean
     },
@@ -39,11 +39,9 @@
     },
     created() {
       this.getData();
-
       /*setInterval(() => {
       this.getData()
       }, 10000);*/
-
     },
     methods: {
       async getData() {

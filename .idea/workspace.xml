@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e53022b5-68a5-4d5d-96a9-30dc9f26903b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/analysis-webpage/src/components/RealtimePlayer.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis-webpage/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis-webpage/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/analysis-webpage/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/src/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/analysis-webpage/src/components/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/src/components/HelloWorld.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis-webpage/src/components/RealtimePlayer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/src/components/RealtimePlayer.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/analysis-webpage/src/components/RealtimeResults.vue" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/src/components/RealtimeResults.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/analysis-webpage/src/components/ResultTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/src/components/ResultTable.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis-webpage/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/vue.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +152,7 @@
       <workItem from="1581237007393" duration="5003000" />
       <workItem from="1581321927522" duration="3014000" />
       <workItem from="1581353359216" duration="35284000" />
-      <workItem from="1581792531453" duration="25148000" />
+      <workItem from="1581792531453" duration="27143000" />
     </task>
     <task id="LOCAL-00001" summary="adaption simulated device for connection">
       <created>1577136378039</created>
@@ -374,7 +371,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581695759564</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="enabling more player at the same time">
+      <created>1582036118547</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1582036118547</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -395,7 +399,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="trials for DeviceMotionEvents (not working)" />
     <MESSAGE value="microsoft code without changes added" />
     <MESSAGE value="first try to fit into vuejs" />
     <MESSAGE value="first try to fit into vuejs with updated dependencies (not working yet)" />
@@ -420,7 +423,8 @@
     <MESSAGE value="proxy completed and some css for ResultTable" />
     <MESSAGE value="first approaches for google charts and reformat date for ResultTable" />
     <MESSAGE value="google chart for one player completed and tested" />
-    <option name="LAST_COMMIT_MESSAGE" value="google chart for one player completed and tested" />
+    <MESSAGE value="enabling more player at the same time" />
+    <option name="LAST_COMMIT_MESSAGE" value="enabling more player at the same time" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581363142719">
@@ -431,9 +435,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="488" y="112" key="#serve/0.0.1536.824@0.0.1536.824" timestamp="1581363177038" />
-    <state x="393" y="8" key="CommitChangelistDialog2" timestamp="1581695758844">
+    <state x="393" y="8" key="CommitChangelistDialog2" timestamp="1582036117196">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="393" y="8" key="CommitChangelistDialog2/0.0.1536.824/1920.-201.2560.1400@0.0.1536.824" timestamp="1582036117196" />
     <state x="393" y="8" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1581695758844" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1581699069178">
       <screen x="0" y="0" width="1536" height="824" />
@@ -455,9 +460,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1581363211349" />
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1581695761363">
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1582036121803">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.-201.2560.1400@0.0.1536.824" timestamp="1582036121803" />
     <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1581695761363" />
     <state x="578" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581695796008">
       <screen x="0" y="0" width="1536" height="824" />

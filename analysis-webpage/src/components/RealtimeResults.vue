@@ -5,7 +5,6 @@
         <li v-for="(player, index) in players" :key="index">
           <div class="realtimePlayer">
             <p>Player {{player}}</p>
-            <!-- TODO -->
             <RealtimePlayer ref=player></RealtimePlayer>
           </div>
         </li>
@@ -28,18 +27,15 @@
     data: function () {
       return {
         ready: false,
-        //only for tests left
-        messages: [],
         players: []
       };
     },
     created() {
-      this.getConnectionInfo().then(info => this.getConnectionInfo2(info))
+      this.getSignalRConnectionInfo().then(info => this.getConnectionInfo(info))
     },
     methods: {
-      getConnectionInfo2(info) {
+      getConnectionInfo(info) {
         console.log(info.url + "  token  " + info.accessToken)
-
         this.ready = true;
         const options = {
           accessTokenFactory: () => info.accessToken
@@ -57,16 +53,15 @@
           let json = JSON.parse(message)
 
           if (this.players.indexOf(json.deviceID) == -1) {
-            //firstTime for this player
+            //this is first time for a player
             this.players.push(json.deviceID);
             let rp = this.$refs[json.deviceID];
             rp.setFirstTimestamp(json.sendingTimestamp);
             rp.newChartData([json.sendingTimestamp - rp.getFirstTimestamp(), json.deviceCoordinateX, json.deviceCoordinateY, json.deviceCoordinateZ])
           } else {
-            //let rp = document.querySelector("#rp_" + this.players.indexOf(json.deviceID));
+            //and on the next times for all players
             let rp = this.$refs[json.deviceID];
             rp.newChartData([json.sendingTimestamp - rp.getFirstTimestamp(), json.deviceCoordinateX, json.deviceCoordinateY, json.deviceCoordinateZ])
-            //this.chartData.push([json.sendingTimestamp-this.firstTime, json.deviceCoordinateX, json.deviceCoordinateY, json.deviceCoordinateZ])
           }
         });
 
@@ -85,7 +80,7 @@
         };
         return config;
       },
-      async getConnectionInfo() {
+      async getSignalRConnectionInfo() {
         return axios.post(API_URL + '/api/negotiate', null, this.getAxiosConfig())
           .then(resp => resp.data);
       }
