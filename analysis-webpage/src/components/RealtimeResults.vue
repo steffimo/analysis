@@ -15,6 +15,7 @@
 
 <script>
   import RealtimePlayer from "./RealtimePlayer";
+  import { EventBus } from '../eventbus.js';
 
   const signalR = require('@aspnet/signalr');
   const axios = require('axios').default;
@@ -57,7 +58,9 @@
             //this is first time for a player
             this.players.push(deviceID);
           }
-            this.$emit('receivemessage', json);
+            console.log("Before Event schmeiß")
+            EventBus.$emit('receivemessage', json);
+          console.log("Nach Event schmeiß")
         });
 
 

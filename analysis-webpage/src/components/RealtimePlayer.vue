@@ -8,6 +8,7 @@
 
 <script>
   import {GChart} from 'vue-google-charts';
+  import { EventBus } from '../eventbus.js';
 
   export default {
     name: "RealtimePlayer",
@@ -19,7 +20,7 @@
     },
     data: function () {
       return {
-        firstTimestamp: Number,
+        firstTimestamp: 0,
         // Array will be automatically processed with visualization.arrayToDataTable function
         chartData: [
           ['Date', 'X-Axis', 'Y-Axis', 'Z-Axis'],
@@ -43,11 +44,18 @@
       };
     },
     created() {
-      this.$on('receivemessage', (json) => {
+      console.log("Created method")
+      EventBus.$on('receivemessage', (json) => {
+        console.log("event received")
+        console.log(json)
         if (this.deviceID === json.deviceID) {
-          if(this.firstTimestamp === undefined){
+          console.log(this.deviceID)
+          console.log(this.firstTimestamp)
+          if(this.firstTimestamp === 0){
+            console.log(json.sendingTimestamp)
             this.firstTimestamp = json.sendingTimestamp;
           }
+          console.log("Push it")
           this.chartData.push([json.sendingTimestamp - this.firstTimestamp, json.deviceCoordinateX, json.deviceCoordinateY, json.deviceCoordinateZ])
         }
       });
