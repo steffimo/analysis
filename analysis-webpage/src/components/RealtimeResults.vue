@@ -49,7 +49,7 @@
         connection.on('newMessage', (message) => {
           console.log("Connection from SignalR with message: ")
           console.log(message)
-          this.messages.push(message);
+
           let json = JSON.parse(message)
 
           if (this.players.indexOf(json.deviceID) == -1) {
