@@ -5,7 +5,7 @@
         <li v-for="(player, index) in players" :key="index">
           <div class="realtimePlayer">
             <p>Player {{player}}</p>
-            <RealtimePlayer ref=player></RealtimePlayer>
+            <RealtimePlayer :deviceID=player></RealtimePlayer>
           </div>
         </li>
       </ul>
@@ -30,11 +30,12 @@
         players: []
       };
     },
-    created() {
+    mounted() {
       this.getSignalRConnectionInfo().then(info => this.getConnectionInfo(info))
     },
     methods: {
       getConnectionInfo(info) {
+        console.log("connInfo "+ this.players)
         console.log(info.url + "  token  " + info.accessToken)
         this.ready = true;
         const options = {
@@ -49,20 +50,14 @@
         connection.on('newMessage', (message) => {
           console.log("Connection from SignalR with message: ")
           console.log(message)
-
+          console.log("connInfoON "+ this.players)
           let json = JSON.parse(message)
-
-          if (this.players.indexOf(json.deviceID) == -1) {
+          let deviceID = json.deviceID
+          if (this.players.indexOf(deviceID) == -1) {
             //this is first time for a player
-            this.players.push(json.deviceID);
-            let rp = this.$refs[json.deviceID];
-            rp.setFirstTimestamp(json.sendingTimestamp);
-            rp.newChartData([json.sendingTimestamp - rp.getFirstTimestamp(), json.deviceCoordinateX, json.deviceCoordinateY, json.deviceCoordinateZ])
-          } else {
-            //and on the next times for all players
-            let rp = this.$refs[json.deviceID];
-            rp.newChartData([json.sendingTimestamp - rp.getFirstTimestamp(), json.deviceCoordinateX, json.deviceCoordinateY, json.deviceCoordinateZ])
+            this.players.push(deviceID);
           }
+            this.$emit('receivemessage', json);
         });
 
 

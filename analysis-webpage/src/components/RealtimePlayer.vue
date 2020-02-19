@@ -14,6 +14,9 @@
     components: {
       GChart
     },
+    props: {
+      deviceID: String
+    },
     data: function () {
       return {
         firstTimestamp: Number,
@@ -39,16 +42,15 @@
         }
       };
     },
-    methods: {
-      setFirstTimestamp(timestamp) {
-        this.firstTimestamp = timestamp;
-      },
-      getFirstTimestamp() {
-        return this.firstTimestamp;
-      },
-      newChartData(msg) {
-        this.chartData.push(msg);
-      }
+    created() {
+      this.$on('receivemessage', (json) => {
+        if (this.deviceID === json.deviceID) {
+          if(this.firstTimestamp === undefined){
+            this.firstTimestamp = json.sendingTimestamp;
+          }
+          this.chartData.push([json.sendingTimestamp - this.firstTimestamp, json.deviceCoordinateX, json.deviceCoordinateY, json.deviceCoordinateZ])
+        }
+      });
     }
   }
 </script>
