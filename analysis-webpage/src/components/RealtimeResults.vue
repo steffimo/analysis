@@ -15,7 +15,7 @@
 
 <script>
   import RealtimePlayer from "./RealtimePlayer";
-  import { EventBus } from '../eventbus.js';
+  import {EventBus} from '../eventbus.js';
 
   const signalR = require('@aspnet/signalr');
   const axios = require('axios').default;
@@ -36,7 +36,7 @@
     },
     methods: {
       getConnectionInfo(info) {
-        console.log("connInfo "+ this.players)
+        console.log("connInfo " + this.players)
         console.log(info.url + "  token  " + info.accessToken)
         this.ready = true;
         const options = {
@@ -51,15 +51,19 @@
         connection.on('newMessage', (message) => {
           console.log("Connection from SignalR with message: ")
           console.log(message)
-          console.log("connInfoON "+ this.players)
-          let json = JSON.parse(message)
-          let deviceID = json.deviceID
-          if (this.players.indexOf(deviceID) == -1) {
+          console.log("connInfoON " + this.players)
+          //Problem: SignalR schickt Nachrichten teilweise gleichzeitig raus => Fehler beim Parsen
+          //Lösung: Liste
+          //TODO Überprüfung, ob das nur für den jeweiligen Player gesendet wird oder auch gemischt wird
+          let json = JSON.parse("[" + message + "]")
+          let deviceID = json[0].deviceID
+          console.log("erste DeviceID ist " + deviceID)
+          if (this.players.indexOf(deviceID) === -1) {
             //this is first time for a player
             this.players.push(deviceID);
           }
-            console.log("Before Event schmeiß")
-            EventBus.$emit('receivemessage', json);
+          console.log("Before Event schmeiß")
+          EventBus.$emit('receivemessage', json);
           console.log("Nach Event schmeiß")
         });
 

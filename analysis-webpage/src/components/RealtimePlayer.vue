@@ -48,15 +48,15 @@
       EventBus.$on('receivemessage', (json) => {
         console.log("event received")
         console.log(json)
-        if (this.deviceID === json.deviceID) {
+        if (this.deviceID === json[0].deviceID) {
           console.log(this.deviceID)
-          console.log(this.firstTimestamp)
           if(this.firstTimestamp === 0){
-            console.log(json.sendingTimestamp)
-            this.firstTimestamp = json.sendingTimestamp;
+            this.firstTimestamp = json[0].sendingTimestamp;
           }
           console.log("Push it")
-          this.chartData.push([json.sendingTimestamp - this.firstTimestamp, json.deviceCoordinateX, json.deviceCoordinateY, json.deviceCoordinateZ])
+          for (let element in json){
+            this.chartData.push([json[element].sendingTimestamp - this.firstTimestamp, json[element].deviceCoordinateX, json[element].deviceCoordinateY, json[element].deviceCoordinateZ])
+          }
         }
       });
     }
