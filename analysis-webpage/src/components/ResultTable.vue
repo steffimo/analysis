@@ -30,7 +30,8 @@
     props: {
       // Funktions-Apps => DataAnalytics bzw DataAnalyticsSession => Verwalten => Funktionsschlüssel als code, falls authorization auf .function
       url: String,
-      overall: Boolean
+      overall: Boolean,
+      reloading: Boolean
     },
     data: function () {
       return {
@@ -39,10 +40,15 @@
     },
     created() {
       this.getData();
-      /*setInterval(() => {
-      this.getData()
-      }, 10000);*/
     },
+    mounted() {
+      if(this.reloading){
+        this.getData();
+      }
+    },
+    /*beforeUpdate() {
+      this.getData();
+    },*/
     methods: {
       async getData() {
         try {

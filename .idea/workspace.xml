@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e53022b5-68a5-4d5d-96a9-30dc9f26903b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/analysis-webpage/src/eventbus.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis-webpage/src/components/RealtimePlayer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/src/components/RealtimePlayer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis-webpage/src/components/RealtimeResults.vue" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/src/components/RealtimeResults.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis-webpage/src/components/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/src/components/HelloWorld.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis-webpage/src/components/ResultTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/src/components/ResultTable.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/frontend-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +151,8 @@
       <workItem from="1581237007393" duration="5003000" />
       <workItem from="1581321927522" duration="3014000" />
       <workItem from="1581353359216" duration="35284000" />
-      <workItem from="1581792531453" duration="45362000" />
+      <workItem from="1581792531453" duration="49613000" />
+      <workItem from="1582397759399" duration="8850000" />
     </task>
     <task id="LOCAL-00001" summary="adaption simulated device for connection">
       <created>1577136378039</created>
@@ -397,7 +399,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582151876067</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="fixing events with event bus">
+      <created>1582153698720</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1582153698720</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -418,7 +427,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="webpage: DeviceMotionEvent works now (https)" />
     <MESSAGE value="new frame for the analysis webpage" />
     <MESSAGE value="10 seconds disabled button for webpage" />
     <MESSAGE value="DeviceMotionEvent for iPhones enabled" />
@@ -443,7 +451,8 @@
     <MESSAGE value="refactored" />
     <MESSAGE value="fix" />
     <MESSAGE value="child parent events for receive message" />
-    <option name="LAST_COMMIT_MESSAGE" value="child parent events for receive message" />
+    <MESSAGE value="fixing events with event bus" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing events with event bus" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581363142719">
@@ -454,12 +463,12 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="488" y="112" key="#serve/0.0.1536.824@0.0.1536.824" timestamp="1581363177038" />
-    <state x="393" y="8" key="CommitChangelistDialog2" timestamp="1582151875314">
+    <state x="393" y="8" key="CommitChangelistDialog2" timestamp="1582153698053">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="393" y="8" key="CommitChangelistDialog2/0.0.1536.824/1920.-201.2560.1400@0.0.1536.824" timestamp="1582036117196" />
     <state x="393" y="8" key="CommitChangelistDialog2/0.0.1536.824/1920.0.2048.1112@0.0.1536.824" timestamp="1582112608332" />
-    <state x="393" y="8" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1582151875314" />
+    <state x="393" y="8" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1582153698053" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1581699069178">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -480,12 +489,12 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1581363211349" />
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1582151878267">
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1582153703205">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.-201.2560.1400@0.0.1536.824" timestamp="1582036121803" />
     <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.2048.1112@0.0.1536.824" timestamp="1582112610813" />
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1582151878267" />
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1582153703205" />
     <state x="578" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581695796008">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
