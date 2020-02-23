@@ -12,25 +12,20 @@
       </div>
     </div>
     <h1>{{ msg }}</h1>
-    <div class='realTimeInfos'>
-      <details open="open">
-        <summary>Real-time data</summary>
-        <RealtimeResults></RealtimeResults>
-      </details>
-    </div>
-    <p>
-      Here are informations about your current session <b>{{currentSessionID}}</b> and the overall placements.
-    </p>
     <div class='outputWrapperWrapper'>
       <div class='outputWrapper'>
+        <div class='realtime'>
+          <details open="open">
+            <summary>Realtime data</summary>
+            <RealtimeResults></RealtimeResults>
+          </details>
+        </div>
         <div class='outputSession'>
           <details>
-            <summary> Results for your current session</summary>
+            <summary>Results for your current session</summary>
             <ResultTable :overall=false
                          :url=url_session
-                         :reloading=reload></ResultTable>
-            <!--<ResultTable :overall=false
-                         :url="'api/DataAnalyticsSession?code=YHM7hC64axqap27ImnFaaVXbIhJ5vAOLRLBcvoM5aXRIUFG0OeaYzw==&session=' + currentSessionID"></ResultTable>-->
+                         ref="session"></ResultTable>
           </details>
         </div>
         <div class='outputHighscore'>
@@ -38,10 +33,8 @@
             <summary>Overall highscore</summary>
             <ResultTable :overall=true
                          :url=url_overall
-                         :reloading=reload></ResultTable>
+                         ref="overall"></ResultTable>
             <!-- if reload changes, reloading will be changed and updated from ResultTable will be called -->
-            <!--<ResultTable :overall=true
-                         :url="'api/DataAnalytics?code=M4nNU0aLna6rQDpGc055r12G92i7e06OB0YD1CUCMW4lfmyqmZU75A=='"></ResultTable>-->
           </details>
         </div>
       </div>
@@ -63,31 +56,32 @@
     data: function () {
       return {
         clicked: false,
-        reload: false,
-        startTime: 0,
         counter: 10,
         url_overall: API_URL + '/api/DataAnalytics',
-        url_session: API_URL + '/api/DataAnalyticsSession?session=' + this.currentSessionID + '&begin=' + this.startTime
+        url_session: undefined
       }
     },
     methods: {
       startCountdown() {
         this.clicked = true;
-        this.startTime = Date.now();
+        let startTime = Date.now();
+        this.url_session = API_URL + '/api/DataAnalyticsSession?session=' + this.currentSessionID + '&begin=' + startTime;
         document.getElementById('countdown').style.display = "block";
         this.countdownTimer();
       },
-      countdownTimer() {
+      async countdownTimer() {
         if (this.counter !== 0) {
           setTimeout(() => {
             this.counter--;
             this.countdownTimer();
           }, 1000);
         } else {
+          //TODO unschöner Stil für vuejs
           document.getElementById('countdown').style.display = "none";
           document.getElementById('timeover').style.display = "block";
-          this.url_session = API_URL + '/api/DataAnalyticsSession?session=' + this.currentSessionID + '&begin=' + this.startTime;
-          this.reload = true;
+          console.log(this.url_session)
+          await this.$refs.session.getData();
+          await this.$refs.overall.getData();
         }
       }
     }
@@ -108,5 +102,6 @@
   .countdown-wrapper {
     font-size: xx-large;
   }
+
 </style>
 

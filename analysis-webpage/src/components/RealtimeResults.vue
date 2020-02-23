@@ -91,7 +91,11 @@
 </script>
 
 <style scoped>
-  .ul {
+  ul {
     list-style: none
+  }
+
+  .realtimePlayer{
+    text-align: center;
   }
 </style>

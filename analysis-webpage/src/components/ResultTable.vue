@@ -3,7 +3,7 @@
     <table>
       <thead>
       <tr>
-        <th>Placement</th>
+        <th>Rank</th>
         <th>Name</th>
         <th>Energy</th>
         <th v-if=overall>Date</th>
@@ -28,10 +28,8 @@
   export default {
     name: "ResultTable",
     props: {
-      // Funktions-Apps => DataAnalytics bzw DataAnalyticsSession => Verwalten => Funktionsschlüssel als code, falls authorization auf .function
       url: String,
-      overall: Boolean,
-      reloading: Boolean
+      overall: Boolean
     },
     data: function () {
       return {
@@ -41,14 +39,6 @@
     created() {
       this.getData();
     },
-    mounted() {
-      if(this.reloading){
-        this.getData();
-      }
-    },
-    /*beforeUpdate() {
-      this.getData();
-    },*/
     methods: {
       async getData() {
         try {
@@ -67,8 +57,8 @@
 </script>
 
 <style scoped>
-  .table {
+  /*.table {
     overflow: auto;
     max-height: 500px;
-  }
+  }*/
 </style>

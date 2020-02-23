@@ -2,7 +2,7 @@
   <div id="app">
     <img alt="Analytics logo" width="30%" src="./assets/analytics.png">
     <qrcode :value=url></qrcode>
-    <HelloWorld msg="Welcome to Your Analytics" :currentSessionID=currentSession></HelloWorld>
+    <HelloWorld :msg="'Welcome to Your Analytics (#'+currentSession+')'" :currentSessionID=currentSession></HelloWorld>
   </div>
 </template>
 
@@ -34,7 +34,7 @@
 
 <style>
   #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    font-family: Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
