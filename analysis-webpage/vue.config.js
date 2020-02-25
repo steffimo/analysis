@@ -1,6 +1,6 @@
 const API_URL = {
-  production: JSON.stringify('https://showcaseFunctions.azurewebsites.net'),
-  //production: JSON.stringify('https://iotShowcaseFunctions.azurewebsites.net'),
+  //production: JSON.stringify('https://showcaseFunctions.azurewebsites.net'),
+  production: JSON.stringify('https://iotShowcaseFunctions.azurewebsites.net'),
   development: JSON.stringify('https://localhost:8080')
 };
 
@@ -14,14 +14,14 @@ module.exports = {
     https: true,
     proxy: {
       '^/api': {
-        'target': 'https://showcaseFunctions.azurewebsites.net',
-        //'target': 'https://iotShowcaseFunctions.azurewebsites.net',
+        //'target': 'https://showcaseFunctions.azurewebsites.net',
+        'target': 'https://iotShowcaseFunctions.azurewebsites.net',
         'ws': true,
         'changeOrigin': true
       },
       '^/client': {
-        'target': 'https://iotdata1.service.signalr.net/',
-        //'target': 'https://iotdataMW.service.signalr.net/',
+        //'target': 'https://iotdata1.service.signalr.net/',
+        'target': 'https://iotdataMW.service.signalr.net/',
         'ws': true,
         'changeOrigin': true
       }

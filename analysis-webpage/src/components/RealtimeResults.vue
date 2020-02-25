@@ -5,7 +5,7 @@
         <li v-for="(player, index) in players" :key="index">
           <div class="realtimePlayer">
             <div class="player">
-              <p style="font-size: larger; color: darkslategray; font-weight: bold">{{player}}</p>
+              <p>{{player}}</p>
             </div>
             <div class="graph">
               <RealtimePlayer :deviceID=player></RealtimePlayer>
@@ -107,6 +107,9 @@
     grid-area: player;
     grid-gap: 20px;
     padding-top: 75px;
+    font-size: larger;
+    color: darkslategray;
+    font-weight: bold;
   }
 
   .graph{
