@@ -4,8 +4,12 @@
       <ul>
         <li v-for="(player, index) in players" :key="index">
           <div class="realtimePlayer">
-            <p>Player {{player}}</p>
-            <RealtimePlayer :deviceID=player></RealtimePlayer>
+            <div class="player">
+              <p style="font-size: larger; color: darkslategray; font-weight: bold">{{player}}</p>
+            </div>
+            <div class="graph">
+              <RealtimePlayer :deviceID=player></RealtimePlayer>
+            </div>
           </div>
         </li>
       </ul>
@@ -54,10 +58,8 @@
           console.log("connInfoON " + this.players)
           //Problem: SignalR schickt Nachrichten teilweise gleichzeitig raus => Fehler beim Parsen
           //Lösung: Liste
-          //TODO Überprüfung, ob das nur für den jeweiligen Player gesendet wird oder auch gemischt wird
           let json = JSON.parse("[" + message + "]")
           let deviceID = json[0].deviceID
-          console.log("erste DeviceID ist " + deviceID)
           if (this.players.indexOf(deviceID) === -1) {
             //this is first time for a player
             this.players.push(deviceID);
@@ -96,6 +98,18 @@
   }
 
   .realtimePlayer{
+    display: grid;
+    grid-template: "player graph";
     text-align: center;
+  }
+
+  .player{
+    grid-area: player;
+    grid-gap: 20px;
+    padding-top: 75px;
+  }
+
+  .graph{
+    grid-area: graph;
   }
 </style>

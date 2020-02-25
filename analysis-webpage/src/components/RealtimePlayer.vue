@@ -23,8 +23,8 @@
         firstTimestamp: 0,
         // Array will be automatically processed with visualization.arrayToDataTable function
         chartData: [
-          ['Date', 'X-Axis', 'Y-Axis', 'Z-Axis'],
-          [0, 0, 0, 0]
+          ['Date', 'X-Axis', 'Y-Axis', 'Z-Axis', {type: 'string', role: 'annotation'}, {type: 'string', role: 'annotationText'}],
+          [-1, 0, 0, 0, null, null]
         ],
         chartOptions: {
           hAxis: {
@@ -39,6 +39,9 @@
             axis: 'horizontal',
             keepInBounds: true,
             maxZoomIn: 10.0
+          },
+          annotations: {
+            style: 'line'
           }
         }
       };
@@ -55,9 +58,16 @@
           }
           console.log("Push it")
           for (let element in json){
-            this.chartData.push([json[element].sendingTimestamp - this.firstTimestamp, json[element].deviceCoordinateX, json[element].deviceCoordinateY, json[element].deviceCoordinateZ])
+            this.chartData.push([json[element].sendingTimestamp - this.firstTimestamp, json[element].deviceCoordinateX, json[element].deviceCoordinateY, json[element].deviceCoordinateZ, null, null])
           }
         }
+      });
+      EventBus.$on('startgame', (startTime) => {
+        console.log("start event received"+startTime)
+        this.chartData.push([startTime-this.firstTimestamp, 0, 0, 0, 'start', 'Start-Annotation']);
+        setTimeout(()=>{
+          this.chartData.push([startTime-this.firstTimestamp+10000, 0, 0, 0, 'end', 'End-Annotation'])
+        },10*1000);
       });
     }
   }

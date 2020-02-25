@@ -34,7 +34,6 @@
             <ResultTable :overall=true
                          :url=url_overall
                          ref="overall"></ResultTable>
-            <!-- if reload changes, reloading will be changed and updated from ResultTable will be called -->
           </details>
         </div>
       </div>
@@ -45,6 +44,7 @@
 <script>
   import ResultTable from "./ResultTable";
   import RealtimeResults from "./RealtimeResults";
+  import {EventBus} from '../eventbus.js';
 
   export default {
     name: 'HelloWorld',
@@ -66,6 +66,7 @@
         this.clicked = true;
         let startTime = Date.now();
         this.url_session = API_URL + '/api/DataAnalyticsSession?session=' + this.currentSessionID + '&begin=' + startTime;
+        EventBus.$emit('startgame', startTime);
         document.getElementById('countdown').style.display = "block";
         this.countdownTimer();
       },
@@ -89,6 +90,10 @@
 </script>
 
 <style scoped>
+  summary{
+    font-size: large;
+  }
+
   .outputWrapperWrapper {
     margin: 1em auto;
     display: table;

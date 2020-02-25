@@ -15,14 +15,12 @@ module.exports = {
     proxy: {
       '^/api': {
         'target': 'https://showcaseFunctions.azurewebsites.net',
-        //'target': 'https://dataorganisation-iotshowcase.azurewebsites.net',
         //'target': 'https://iotShowcaseFunctions.azurewebsites.net',
         'ws': true,
         'changeOrigin': true
       },
       '^/client': {
         'target': 'https://iotdata1.service.signalr.net/',
-        //'target': 'https://iotdata.service.signalr.net/',
         //'target': 'https://iotdataMW.service.signalr.net/',
         'ws': true,
         'changeOrigin': true
