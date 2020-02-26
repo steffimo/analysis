@@ -97,7 +97,8 @@
     created() {
       setTimeout(()=> {
          this.sessionTimeout = true;
-         this.deleteAccelerometerData();
+         //TODO enable after tests
+         //this.deleteAccelerometerData();
       }, 5*60*1000)
     }
   }
