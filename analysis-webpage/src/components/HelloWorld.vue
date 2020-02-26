@@ -12,6 +12,7 @@
       </div>
     </div>
     <h1>{{ msg }}</h1>
+    <p style="font-weight: bolder; font-size: x-large; font-family: 'Times New Roman';" v-if="sessionTimeout">Session expired!</p>
     <div class='outputWrapperWrapper'>
       <div class='outputWrapper'>
         <div class='realtime'>
@@ -46,6 +47,8 @@
   import RealtimeResults from "./RealtimeResults";
   import {EventBus} from '../eventbus.js';
 
+  const axios = require('axios').default;
+
   export default {
     name: 'HelloWorld',
     components: {RealtimeResults, ResultTable},
@@ -58,7 +61,8 @@
         clicked: false,
         counter: 10,
         url_overall: API_URL + '/api/DataAnalytics',
-        url_session: undefined
+        url_session: undefined,
+        sessionTimeout: false
       }
     },
     methods: {
@@ -80,7 +84,21 @@
           await this.$refs.session.getData();
           await this.$refs.overall.getData();
         }
+      },
+      async deleteAccelerometerData() {
+        try {
+          await axios.post(API_URL + '/api/DeleteOldAccelerometerData')
+          console.log("AccelerometerData from current session deleted")
+        } catch (e) {
+          console.log("Error deleting accelerometer data: " + e)
+        }
       }
+    },
+    created() {
+      setTimeout(()=> {
+         this.sessionTimeout = true;
+         this.deleteAccelerometerData();
+      }, 5*60*1000)
     }
   }
 </script>
