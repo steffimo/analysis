@@ -1,13 +1,13 @@
 <template>
   <div class='hello'>
-    <div id="StartButton">
-      <button @click="startCountdown" :disabled='clicked'>Start IT</button>
+    <div class='StartButton'>
+      <button class="start" @click="startCountdown" :disabled='clicked'>Start IT</button>
     </div>
     <div class="countdown-wrapper">
-      <div id="countdown" style="display: none;">
+      <div id="countdown" v-if="clicked && counter!==0">
         <p>{{counter}}</p>
       </div>
-      <div id="timeover" style="display: none;">
+      <div id="timeover" v-if="clicked && counter===0">
         <p>Time is over!</p>
       </div>
     </div>
@@ -67,7 +67,6 @@
         let startTime = Date.now();
         this.url_session = API_URL + '/api/DataAnalyticsSession?session=' + this.currentSessionID + '&begin=' + startTime;
         EventBus.$emit('startgame', startTime);
-        document.getElementById('countdown').style.display = "block";
         this.countdownTimer();
       },
       async countdownTimer() {
@@ -77,9 +76,6 @@
             this.countdownTimer();
           }, 1000);
         } else {
-          //TODO unschöner Stil für vuejs
-          document.getElementById('countdown').style.display = "none";
-          document.getElementById('timeover').style.display = "block";
           console.log(this.url_session)
           await this.$refs.session.getData();
           await this.$refs.overall.getData();
@@ -108,5 +104,8 @@
     font-size: xx-large;
   }
 
+  .start {
+    font-family: monospace;
+  }
 </style>
 

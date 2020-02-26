@@ -4,11 +4,11 @@
       <ul>
         <li v-for="(player, index) in players" :key="index">
           <div class="realtimePlayer">
-            <div class="player">
-              <p>{{player}}</p>
-            </div>
             <div class="graph">
               <RealtimePlayer :deviceID=player></RealtimePlayer>
+            </div>
+            <div class="player">
+              <p>{{player}}</p>
             </div>
           </div>
         </li>
@@ -94,19 +94,19 @@
 
 <style scoped>
   ul {
-    list-style: none
+    list-style: none;
+    padding-left: 0;
   }
 
   .realtimePlayer{
     display: grid;
-    grid-template: "player graph";
+    grid-template: "graph player";
     text-align: center;
   }
 
   .player{
     grid-area: player;
-    grid-gap: 20px;
-    padding-top: 75px;
+    padding-top: 130px;
     font-size: larger;
     color: darkslategray;
     font-weight: bold;
@@ -114,5 +114,6 @@
 
   .graph{
     grid-area: graph;
+    grid-gap: 20px;
   }
 </style>

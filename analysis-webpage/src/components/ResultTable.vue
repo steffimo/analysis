@@ -57,6 +57,10 @@
 </script>
 
 <style scoped>
+  td {
+    padding-right: 10px;
+  }
+
   /*.table {
     overflow: auto;
     max-height: 500px;
