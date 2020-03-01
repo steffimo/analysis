@@ -1,18 +1,11 @@
 <template>
-  <div>
-    <div id="realtimeData">
-      <ul>
-        <li v-for="(player, index) in players" :key="index">
+  <div class="realtimeDataWrapper">
+    <div class="realtimeData">
+        <div v-for="(player, index) in players" :key="index">
           <div class="realtimePlayer">
-            <div class="graph">
               <RealtimePlayer :deviceID=player></RealtimePlayer>
-            </div>
-            <div class="player">
-              <p>{{player}}</p>
-            </div>
           </div>
-        </li>
-      </ul>
+        </div>
     </div>
   </div>
 </template>
@@ -93,27 +86,21 @@
 </script>
 
 <style scoped>
-  ul {
-    list-style: none;
-    padding-left: 0;
+  .realtimeDataWrapper{
+    text-align: center;
   }
 
   .realtimePlayer{
     display: grid;
-    grid-template: "graph player";
-    text-align: center;
+  }
+  .realtimeData{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 900px);
   }
 
-  .player{
-    grid-area: player;
-    padding-top: 130px;
-    font-size: larger;
-    color: darkslategray;
-    font-weight: bold;
-  }
-
-  .graph{
-    grid-area: graph;
-    grid-gap: 20px;
+  @media(min-width: 1850px){
+    .realtimeData{
+      grid-gap: 30px;
+    }
   }
 </style>

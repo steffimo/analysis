@@ -27,6 +27,7 @@
           [-1, 0, 0, 0, null, null]
         ],
         chartOptions: {
+          title: this.deviceID,
           hAxis: {
             title: 'Time'
           },

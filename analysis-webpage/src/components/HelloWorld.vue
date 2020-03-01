@@ -12,32 +12,28 @@
       </div>
     </div>
     <h1>{{ msg }}</h1>
-    <p style="font-weight: bolder; font-size: x-large; font-family: 'Times New Roman';" v-if="sessionTimeout">Session expired!</p>
-    <div class='outputWrapperWrapper'>
-      <div class='outputWrapper'>
-        <div class='realtime'>
-          <details open="open">
-            <summary>Realtime data</summary>
-            <RealtimeResults></RealtimeResults>
-          </details>
-        </div>
-        <div class='outputSession'>
-          <details>
-            <summary>Results for your current session</summary>
-            <ResultTable :overall=false
-                         :url=url_session
-                         ref="session"></ResultTable>
-          </details>
-        </div>
-        <div class='outputHighscore'>
-          <details>
-            <summary>Overall highscore</summary>
-            <ResultTable :overall=true
-                         :url=url_overall
-                         ref="overall"></ResultTable>
-          </details>
-        </div>
-      </div>
+    <p class="session-timeout" v-if="sessionTimeout">Session expired!</p>
+    <div class='realtime'>
+      <details open="open">
+        <summary>Realtime data</summary>
+        <RealtimeResults></RealtimeResults>
+      </details>
+    </div>
+    <div class='outputSession'>
+      <details>
+        <summary>Results for your current session</summary>
+        <ResultTable :overall=false
+                     :url=url_session
+                     ref="session"></ResultTable>
+      </details>
+    </div>
+    <div class='outputHighscore'>
+      <details>
+        <summary>Overall highscore</summary>
+        <ResultTable :overall=true
+                     :url=url_overall
+                     ref="overall"></ResultTable>
+      </details>
     </div>
   </div>
 </template>
@@ -95,28 +91,31 @@
       }
     },
     created() {
-      setTimeout(()=> {
-         this.sessionTimeout = true;
-         //TODO enable after tests
-         //this.deleteAccelerometerData();
-      }, 5*60*1000)
+      setTimeout(() => {
+        this.sessionTimeout = true;
+        //TODO enable after tests
+        //this.deleteAccelerometerData();
+      }, 5 * 60 * 1000)
     }
   }
 </script>
 
 <style scoped>
-  summary{
+  summary {
     font-size: large;
+    text-align: center;
   }
 
-  .outputWrapperWrapper {
-    margin: 1em auto;
-    display: table;
+  @media (min-width: 2000px) {
+    .realtime {
+      width: 2000px;
+    }
   }
 
-  .outputWrapper {
-    display: table-cell;
-    text-align: left;
+  @media (min-width: 3000px) {
+    .realtime {
+      width: 3000px;
+    }
   }
 
   .countdown-wrapper {
@@ -125,6 +124,12 @@
 
   .start {
     font-family: monospace;
+  }
+
+  .session-timeout {
+    font-weight: bolder;
+    font-size: x-large;
+    font-family: 'Times New Roman';
   }
 </style>
 

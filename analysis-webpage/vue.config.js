@@ -1,7 +1,7 @@
 const API_URL = {
   //production: JSON.stringify('https://showcaseFunctions.azurewebsites.net'),
   production: JSON.stringify('https://iotShowcaseFunctions.azurewebsites.net'),
-  development: JSON.stringify('https://localhost:8080')
+  development: JSON.stringify('https://localhost:8082')
 };
 
 // check environment mode
@@ -10,7 +10,7 @@ const environment = process.env.NODE_ENV === 'production' ? 'production' : 'deve
 module.exports = {
   publicPath: '/analysis/',
   devServer: {
-    port: 8080,
+    port: 8082,
     https: true,
     proxy: {
       '^/api': {
