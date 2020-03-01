@@ -1,5 +1,4 @@
 <template>
-  <div class="table">
     <table>
       <thead>
       <tr>
@@ -19,7 +18,6 @@
       </tr>
       </tbody>
     </table>
-  </div>
 </template>
 
 <script>
@@ -61,6 +59,10 @@
     padding-right: 10px;
   }
 
+  table {
+      margin-left:auto;
+      margin-right:auto;
+  }
   /*.table {
     overflow: auto;
     max-height: 500px;
