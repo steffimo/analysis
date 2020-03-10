@@ -48,23 +48,24 @@
       };
     },
     created() {
-      console.log("Created method")
+      console.log("Created method");
       EventBus.$on('receivemessage', (json) => {
-        console.log("event received")
-        console.log(json)
+        console.log("event received");
+        console.log(json);
         if (this.deviceID === json[0].deviceID) {
-          console.log(this.deviceID)
           if(this.firstTimestamp === 0){
             this.firstTimestamp = json[0].sendingTimestamp;
           }
-          console.log("Push it")
+          console.log("Push it");
           for (let element in json){
-            this.chartData.push([json[element].sendingTimestamp - this.firstTimestamp, json[element].deviceCoordinateX, json[element].deviceCoordinateY, json[element].deviceCoordinateZ, null, null])
+            if (this.deviceID === json[element].deviceID) {
+              this.chartData.push([json[element].sendingTimestamp - this.firstTimestamp, json[element].deviceCoordinateX, json[element].deviceCoordinateY, json[element].deviceCoordinateZ, null, null])
+            }
           }
         }
       });
       EventBus.$on('startgame', (startTime) => {
-        console.log("start event received"+startTime)
+        console.log("start event received"+startTime);
         this.chartData.push([startTime-this.firstTimestamp, 0, 0, 0, 'start', 'Start-Annotation']);
         setTimeout(()=>{
           this.chartData.push([startTime-this.firstTimestamp+10000, 0, 0, 0, 'end', 'End-Annotation'])
