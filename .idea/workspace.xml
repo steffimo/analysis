@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e53022b5-68a5-4d5d-96a9-30dc9f26903b" name="Default Changelist" comment="fixed bug one signalr message for more players">
+    <list default="true" id="e53022b5-68a5-4d5d-96a9-30dc9f26903b" name="Default Changelist" comment="update README.md">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis-webpage/src/components/RealtimePlayer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/src/components/RealtimePlayer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis-webpage/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis-webpage/deploy.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis-webpage/src/components/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/src/components/HelloWorld.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis-webpage/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/analysis-webpage/vue.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +163,8 @@
       <workItem from="1582632750567" duration="21914000" />
       <workItem from="1582879263420" duration="2425000" />
       <workItem from="1582898083945" duration="9262000" />
-      <workItem from="1583833120506" duration="2122000" />
+      <workItem from="1583833120506" duration="7557000" />
+      <workItem from="1584350302793" duration="3511000" />
     </task>
     <task id="LOCAL-00001" summary="adaption simulated device for connection">
       <created>1577136378039</created>
@@ -477,7 +481,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583061388911</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="fixed bug one signalr message for more players">
+      <created>1583836831846</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1583836831846</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -498,7 +509,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="ResultTable for overall highscore completed, generated qr code" />
     <MESSAGE value="updates for sessions" />
     <MESSAGE value="current version - cors problems" />
     <MESSAGE value="updated axios version - cors problems" />
@@ -523,7 +533,8 @@
     <MESSAGE value="deleting turned off" />
     <MESSAGE value="optimized for screen size + player name, tab icon" />
     <MESSAGE value="fixed bug one signalr message for more players" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed bug one signalr message for more players" />
+    <MESSAGE value="update README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="update README.md" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581363142719">
@@ -534,13 +545,13 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="488" y="112" key="#serve/0.0.1536.824@0.0.1536.824" timestamp="1581363177038" />
-    <state x="393" y="8" key="CommitChangelistDialog2" timestamp="1583836754539">
+    <state x="393" y="8" key="CommitChangelistDialog2" timestamp="1585339783979">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="393" y="8" key="CommitChangelistDialog2/0.0.1536.824/1920.-201.2560.1400@0.0.1536.824" timestamp="1582036117196" />
     <state x="393" y="8" key="CommitChangelistDialog2/0.0.1536.824/1920.0.2048.1112@0.0.1536.824" timestamp="1582721372138" />
     <state x="393" y="8" key="CommitChangelistDialog2/0.0.1536.824/1920.0.2560.1400@0.0.1536.824" timestamp="1582714096539" />
-    <state x="393" y="8" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583836754539" />
+    <state x="393" y="8" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1585339783979" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1581699069178">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -561,22 +572,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1581363211349" />
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1583061406394">
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1583836836480">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.-201.2560.1400@0.0.1536.824" timestamp="1582036121803" />
     <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.2048.1112@0.0.1536.824" timestamp="1582721374171" />
     <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.2560.1400@0.0.1536.824" timestamp="1582714098856" />
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1583061406394" />
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1583836836480" />
     <state x="578" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581695796008">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="578" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1581695796008" />
-    <state x="463" y="144" width="611" height="536" key="find.popup" timestamp="1583835583280">
+    <state x="463" y="144" width="611" height="536" key="find.popup" timestamp="1583845524722">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="463" y="144" width="609" height="536" key="find.popup/0.0.1536.824/1920.-201.2560.1400@0.0.1536.824" timestamp="1582030545835" />
-    <state x="463" y="144" width="611" height="536" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1583835583280" />
+    <state x="463" y="144" width="611" height="536" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1583845524722" />
     <state x="209" y="34" key="new project wizard" timestamp="1582647076846">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

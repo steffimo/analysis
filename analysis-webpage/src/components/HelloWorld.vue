@@ -76,14 +76,14 @@
             this.countdownTimer();
           }, 1000);
         } else {
-          console.log(this.url_session)
+          console.log(this.url_session);
           await this.$refs.session.getData();
           await this.$refs.overall.getData();
         }
       },
       async deleteAccelerometerData() {
         try {
-          await axios.post(API_URL + '/api/DeleteOldAccelerometerData')
+          await axios.post(API_URL + '/api/DeleteOldAccelerometerData');
           console.log("AccelerometerData from current session deleted")
         } catch (e) {
           console.log("Error deleting accelerometer data: " + e)
@@ -93,8 +93,7 @@
     created() {
       setTimeout(() => {
         this.sessionTimeout = true;
-        //TODO enable after tests
-        //this.deleteAccelerometerData();
+        this.deleteAccelerometerData();
       }, 5 * 60 * 1000)
     }
   }
