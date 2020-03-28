@@ -93,7 +93,7 @@
     created() {
       setTimeout(() => {
         this.sessionTimeout = true;
-        this.deleteAccelerometerData();
+        //this.deleteAccelerometerData();
       }, 5 * 60 * 1000)
     }
   }
