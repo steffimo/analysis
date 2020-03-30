@@ -1,15 +1,14 @@
 ---
 author: Stefanie Motzokan
+framework: Vue.js
 ---
 # A simple internet of things showcase - analyse frontend
 
 ## Requirements
 
-- used IDE: IntelliJ (Maven integrated) with Plugin for .vue\
 - [NodeJS and npm](https://www.npmjs.com/get-npm)
-- [git](https://git-scm.com/download)
+- used IDE: IntelliJ (Maven integrated) with Plugin for .vue
 - nice to have: [vue-devtools](https://github.com/vuejs/vue-devtools)
-- maybe to have: [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases)
 
 ## Preperations
 
